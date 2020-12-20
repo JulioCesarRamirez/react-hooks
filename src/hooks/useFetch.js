@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 export const useFetch = (url) => {
   const isMounted = useRef(true);
@@ -27,6 +27,13 @@ export const useFetch = (url) => {
             data,
           });
         }
+      })
+      .catch(() => {
+        setstate({
+          data: null,
+          loading: false,
+          error: 'Info can not be loaded',
+        });
       });
   }, [url]);
 
